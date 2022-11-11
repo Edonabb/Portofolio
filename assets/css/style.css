@@ -523,7 +523,7 @@ body.dark-theme {
 .projects__button{
   display: inline-flex;
   align-items: center;
-  column-gap: .5rem;
+  column-gap: .6rem;
   color: var(--title-color);
   font-size: var(--small-font-size);
 }
