@@ -54,8 +54,35 @@ let swiperProjects = new Swiper(".container ", {
 
 
 /*=============== EMAIL JS ===============*/
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+const contactForm = document.getElementById('contact-form'),
+   contactName = document.getElementById('contact-name'),
+   contactEmail = document.getElementById('contact-email'),
+   contactPorject = document.getElementById('contact-project'),
+   contactMessage = document.getElementById('contact-message')
+   
+const sendEmail = (e) =>{
+   e.preventDefault()
 
+            if( contactName.value ==='' || contactEmail.value === '' || contactPorject.value === ''){
+                contactMessage.classList.remove('color-blue')
+                contactMessage.classList.add('color-red')
+
+        contactMessage.textContent = 'Write all the input fields'
+   }else{
+    emailjs.sendForm('sservice_ktumusa','template_z2ec326','contact-form','E4crpAYrNjxhoxsR-')
+    .then(() => {
+        contactMessage.classList.add('color-blue')
+        contactMessage.textContent = 'Message sent'
+        
+        setTimeout(() =>{
+            contactMessage.textContent = ''
+        }, 5000)
+    
+    }
+    )}  
+  
+}
+contactForm.addEventListener('submit', sendEmail)
 /*=============== SCROLL SECTIONS ACTIVE LINK ===============*/
 
 
